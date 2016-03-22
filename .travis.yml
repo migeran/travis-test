@@ -1,0 +1,3 @@
+language: objective-c
+
+script: cd HelloWorld xcodebuild clean build -project HelloWorld.xcodeproj -scheme HelloWorld
