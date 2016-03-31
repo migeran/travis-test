@@ -1,0 +1,11 @@
+# Machine local OS X Finder files
+**/.DS_Store
+
+# Machine local Xcode files
+**/*.xccheckout
+**/*.xcodeproj/project.xcworkspace/xcuserdata
+**/*.xcodeproj/xcuserdata
+
+# Generated build folders
+**/build
+**/Build
