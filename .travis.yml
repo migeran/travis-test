@@ -10,6 +10,9 @@ env:
 script:
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool test -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+after_success:
+  - export COCOAPODS_TRUNK_TOKEN=ec7c5dabeb5ef97811296d19eb5e2558
+  - pod trunk push
 after_failure:
  - cat -n ~/Library/Logs/scan/*
  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
