@@ -18,9 +18,9 @@ before_script:
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
 script:
   - ./scripts/add-key.sh
-  - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool test -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
+  - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
 after_success:
   - export COCOAPODS_TRUNK_TOKEN=ec7c5dabeb5ef97811296d19eb5e2558
   - pod trunk push
