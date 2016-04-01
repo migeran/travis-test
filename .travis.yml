@@ -17,7 +17,7 @@ before_script:
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
 script:
-  - ./add-key.sh
+  - ./scripts/add-key.sh
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool test -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
@@ -28,3 +28,5 @@ after_failure:
  - cat -n ~/Library/Logs/scan/*
  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
+after_script:
+  - ./scripts/remove-key.sh
