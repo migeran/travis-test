@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "travis-test"
-  s.version      = "0.0.1"
+  s.version      = "1.0.1"
   s.summary      = "Simple cocoapods test"
 
   # This description is used to generate tags and improve search results.
@@ -38,8 +38,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.license      = "EPL"
+  s.license      = { :type => "EPL", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
