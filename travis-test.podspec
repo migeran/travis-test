@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "travis-test"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Simple cocoapods test"
 
   # This description is used to generate tags and improve search results.
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #
 
   # s.license      = "EPL"
-  s.license      = { :type => 'EPL', :file => 'LICENSE' }
+  s.license      = { :type => 'EPL', :file => 'LICENSE.txt' }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
