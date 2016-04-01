@@ -13,7 +13,7 @@ env:
   - PROFILE_NAME="TestSDK"
   - secure: jXTNxxdrZ94bddQ57sabXisoX3X84ii/kIHDQZ/iRaVkdFruLXax27024cC5M4uWQiDs1zvjgw+5vLQttF6dE/EpQ8aequkAKqz4PgEd+YFYutTdrC7erMvD82/tPuw0vHIkLfsD2BQsK+rBs/WdEwFGsYzAoMHC9punFA4LV2CE3ThztuX6lfuCcxvs83s3aL9a4nVsZucrdtr3jcxRxL5wj09eWyvE0d/175n3dfviHv/PXOePE3D9wSrWk26eKvCA/lbHXIrTdHAYg6mu9oIqKeJzXrK8AqG45MH+Zf3b6xDe0cznmE1/1owIAljO/oE2yd+liztDf+i1Qrcomk9Y79kwaScgie19DPNyTZnWF7xgMiM8MUqov2GYiFER+g6HBVYN+51Gi0C7tEZuBKhBM4aytn4fXs2bKhXVrXIPRSTyB9BRv4oQQ0Gb9B0PZiifk/tm1kf3vjug9JIyXAZk8oAuZwqfoESOL/MNPo+5o/3SXsWl3ULY4xHN1Q2IlAfj+OUqF5wS3MlIcZVjpxQDyQLHyA0k2JmdMjZIeFjXAVO1Jv2unhyCNSewd5sJsjgeDVHF51QDGhgBquWzUw+1txQkQ6zkE0tc/sJvKZldrd3cfpgmPaHAiCeI2QY2XMe+Q7KoF5CenR7A+746m9mSK9zUDFr6Mi6bcYcznjU=
 before_script:
-  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/TravisExample_Ad_Hoc.mobileprovision.enc -d -a -out scripts/profile/TravisExample_Ad_Hoc.mobileprovision
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/TestSDK.mobileprovision.enc -d -a -out scripts/profile/TestSDK.mobileprovision
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
 script:
