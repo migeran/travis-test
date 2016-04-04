@@ -9,7 +9,7 @@ ssh-add scripts/id_rsa
 # Update git config
 echo "Host travis-deploy" >> ~/.ssh/config
 echo "    HostName github.com" >> ~/.ssh/config
-echo "    User travis" >> ~/.ssh/config
+echo "    User liliomk" >> ~/.ssh/config
 echo "    IdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
 echo "    IdentitiesOnly yes" >> ~/.ssh/config
 
