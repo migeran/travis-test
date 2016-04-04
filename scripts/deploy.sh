@@ -1,3 +1,5 @@
+set -e
+
 # Add ssh key
 chmod 600 scripts/id_rsa
 ssh-add -K scripts/id_rsa
