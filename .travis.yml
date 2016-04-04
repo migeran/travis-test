@@ -30,9 +30,9 @@ after_success:
   - lipo ../build/Release-iphoneos/TestSDK.framework/TestSDK ../build/Release-iphonesimulator/TestSDK.framework/TestSDK -create -output TestSDK.framework/TestSDK
   - git add --all TestSDK.framework
   - git commit -m "$(cd ../ &&  git rev-parse HEAD)"
-  - ssd-add -K scripts/id_rsa
+  - ssh-add -K scripts/id_rsa
   - git push origin master
-  - ssd-add -K -d scripts/id_rsa
+  - ssh-add -K -d scripts/id_rsa
   - cd ..
   - rm -rf build-repo
 after_failure:
