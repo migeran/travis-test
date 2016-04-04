@@ -1,22 +1,21 @@
 set -e
+set -x
 
 # Add ssh key
 eval "$(ssh-agent -s)"
 chmod 600 scripts/id_rsa
 ssh-add -K scripts/id_rsa
 
-# Clone target repo
-git clone gitosis@github.com:kovacsi/testrepo.git build-repo
-cd build-repo
-
 # Update git config
 echo "Host github" >> ~/.ssh/config
 echo -e "\tHostName github.com" >> ~/.ssh/config
 echo -e "\tUser git" >> ~/.ssh/config
-echo -e "\tIdentityFile ../scripts/id_rsa" >> ~/.ssh/config
+echo -e "\tIdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
 echo -e "\tIdentitiesOnly yes" >> ~/.ssh/config
-git remote add push-remote git@github:kovacsi/testrepo.git
-git fetch push-remote
+
+# Clone target repo
+git clone --depth=1 git@github.com:kovacsi/testrepo.git build-repo
+cd build-repo
 
 # Update files
 rm -rf TestSDK.framework
@@ -28,7 +27,7 @@ git add --all TestSDK.framework
 git config user.name "Travis CI"
 git config user.email "travis-ci@mattakis.com"
 git commit -m "$(cd ../ &&  git rev-parse HEAD)"
-git push push-remote master
+git push origin master
 
 # Clean up
 cd ..
