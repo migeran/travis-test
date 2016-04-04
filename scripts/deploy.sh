@@ -13,6 +13,7 @@ echo "    IdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
 echo "    IdentitiesOnly yes" >> ~/.ssh/config
 
 # Clone target repo
+ssh -o StrictHostKeyChecking=no travis-deploy
 git clone --depth=1 ssh://travis-deploy/kovacsi/testrepo.git build-repo
 cd build-repo
 
