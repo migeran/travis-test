@@ -4,15 +4,16 @@ set -x
 # Add ssh key
 eval "$(ssh-agent -s)"
 chmod 600 scripts/id_rsa
-ssh-add -K scripts/id_rsa
 
 # Update git config
-echo "Host github.com" >> ~/.ssh/config
-echo -e "\tIdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
-echo -e "\tIdentitiesOnly yes" >> ~/.ssh/config
+echo "Host travis-deploy" >> ~/.ssh/config
+echo "    HostName github.com" >> ~/.ssh/config
+echo "    User travis" >> ~/.ssh/config
+echo "    IdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
+echo "    IdentitiesOnly yes" >> ~/.ssh/config
 
 # Clone target repo
-git clone --depth=1 ssh://github.com/kovacsi/testrepo.git build-repo
+git clone --depth=1 ssh://travis-deploy/kovacsi/testrepo.git build-repo
 cd build-repo
 
 # Update files
@@ -29,5 +30,4 @@ git push origin master
 
 # Clean up
 cd ..
-ssh-add -K -d scripts/id_rsa
 rm -rf build-repo
