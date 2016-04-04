@@ -12,7 +12,7 @@ echo -e "\tIdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
 echo -e "\tIdentitiesOnly yes" >> ~/.ssh/config
 
 # Clone target repo
-git clone --depth=1 gitosis@github.com:kovacsi/testrepo.git build-repo
+git clone --depth=1 ssh://github.com/kovacsi/testrepo.git build-repo
 cd build-repo
 
 # Update files
