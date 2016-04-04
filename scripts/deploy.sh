@@ -1,23 +1,13 @@
-set -e
-set -x
-
 # Add ssh key
 eval "$(ssh-agent -s)"
 chmod 600 scripts/id_rsa
-
-# Update git config
-echo "Host travis-deploy" >> ~/.ssh/config
-echo "    HostName github.com" >> ~/.ssh/config
-echo "    User git" >> ~/.ssh/config
-echo "    IdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
-echo "    IdentitiesOnly yes" >> ~/.ssh/config
+ssh-add scripts/id_rsa
+ssh -o StrictHostKeyChecking=no travis-deploy
 
 # Clone target repo
-set +e
-ssh -o StrictHostKeyChecking=no travis-deploy
 set -e
-
-git clone --depth=1 ssh://travis-deploy/kovacsi/testrepo.git build-repo
+set -x
+git clone --depth=1 ssh://github.com/kovacsi/testrepo.git build-repo
 cd build-repo
 
 # Update files
