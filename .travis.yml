@@ -22,8 +22,16 @@ script:
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
 after_success:
-  - export COCOAPODS_TRUNK_TOKEN=ec7c5dabeb5ef97811296d19eb5e2558
-  - pod trunk push
+  - git clone gitosis@github.com:kovacsi/testrepo.git build-repo
+  - cd build-repo
+  - rm -rf TestSDK.framework
+  - cp -R ../build/Release-iphoneos/TestSDK.framework ./
+  - lipo ../build/Release-iphoneos/TestSDK.framework/TestSDK ../build/Release-iphonesimulator/TestSDK.framework/TestSDK -create -output TestSDK.framework/TestSDK
+  - git add --all TestSDK.framework
+  - git commit -m "$(cd ../ &&  git rev-parse HEAD)"
+  - git push origin master
+  - cd ..
+  - rm -rf build-repo
 after_failure:
  - cat -n ~/Library/Logs/scan/*
  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log

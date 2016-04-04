@@ -6,11 +6,7 @@
 //  Copyright © 2016 Mattakis Ltd. All rights reserved.
 //
 
-#ifndef Test_h
-#define Test_h
-
-
-#endif /* Test_h */
+@import Foundation;
 
 @interface Test : NSObject
 

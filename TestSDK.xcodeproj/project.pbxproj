@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		585C98221CB261E7000BD18F /* Test.h in Headers */ = {isa = PBXBuildFile; fileRef = 99B48A3C1CAD480E00F7974A /* Test.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99B48A261CAD460500F7974A /* TestSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 99B48A251CAD460500F7974A /* TestSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99B48A2D1CAD460500F7974A /* TestSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B48A221CAD460500F7974A /* TestSDK.framework */; };
 		99B48A321CAD460500F7974A /* TestSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B48A311CAD460500F7974A /* TestSDKTests.m */; };
@@ -99,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B48A261CAD460500F7974A /* TestSDK.h in Headers */,
+				585C98221CB261E7000BD18F /* Test.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
