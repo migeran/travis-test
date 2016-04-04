@@ -17,25 +17,13 @@ before_script:
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/id_rsa.enc -d -a -out scripts/id_rsa
-  - chmod 600 scripts/id_rsa
 script:
   - ./scripts/add-key.sh
   - xctool test -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
 after_success:
-  - ssh-add -K scripts/id_rsa
-  - git clone gitosis@github.com:kovacsi/testrepo.git build-repo
-  - cd build-repo
-  - rm -rf TestSDK.framework
-  - cp -R ../build/Release-iphoneos/TestSDK.framework ./
-  - lipo ../build/Release-iphoneos/TestSDK.framework/TestSDK ../build/Release-iphonesimulator/TestSDK.framework/TestSDK -create -output TestSDK.framework/TestSDK
-  - git add --all TestSDK.framework
-  - git commit -m "$(cd ../ &&  git rev-parse HEAD)"
-  - git push origin master
-  - cd ..
-  - ssh-add -K -d scripts/id_rsa
-  - rm -rf build-repo
+  - ./deploy.sh
 after_failure:
  - cat -n ~/Library/Logs/scan/*
  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
