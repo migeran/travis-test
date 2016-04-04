@@ -17,6 +17,7 @@ before_script:
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/id_rsa.enc -d -a -out scripts/id_rsa
+  - chmod 600 scripts/id_rsa
 script:
   - ./scripts/add-key.sh
   - xctool test -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
