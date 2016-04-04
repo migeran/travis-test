@@ -23,6 +23,7 @@ script:
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
 after_success:
+  - ssh-add -K scripts/id_rsa
   - git clone https://liliomk@github.com/kovacsi/testrepo.git build-repo
   - cd build-repo
   - rm -rf TestSDK.framework
@@ -30,10 +31,9 @@ after_success:
   - lipo ../build/Release-iphoneos/TestSDK.framework/TestSDK ../build/Release-iphonesimulator/TestSDK.framework/TestSDK -create -output TestSDK.framework/TestSDK
   - git add --all TestSDK.framework
   - git commit -m "$(cd ../ &&  git rev-parse HEAD)"
-  - ssh-add -K scripts/id_rsa
   - git push origin master
-  - ssh-add -K -d scripts/id_rsa
   - cd ..
+  - ssh-add -K -d scripts/id_rsa
   - rm -rf build-repo
 after_failure:
  - cat -n ~/Library/Logs/scan/*
