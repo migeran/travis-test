@@ -4,6 +4,7 @@ set -x
 # Add ssh key
 eval "$(ssh-agent -s)"
 chmod 600 scripts/id_rsa
+ssh-add scripts/id_rsa
 
 # Update git config
 echo "Host travis-deploy" >> ~/.ssh/config
