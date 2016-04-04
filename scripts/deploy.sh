@@ -5,7 +5,7 @@ chmod 600 scripts/id_rsa
 ssh-add -K scripts/id_rsa
 
 # Clone target repo
-git clone gitosis@github.com:kovacsi/testrepo.git build-repo
+git clone ssh://github.com/kovacsi/testrepo.git build-repo
 cd build-repo
 
 # Update files
