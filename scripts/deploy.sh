@@ -7,15 +7,12 @@ chmod 600 scripts/id_rsa
 ssh-add -K scripts/id_rsa
 
 # Update git config
-echo "Host github" >> ~/.ssh/config
-echo -e "\tHostName github.com" >> ~/.ssh/config
-echo -e "\tUser gitosis" >> ~/.ssh/config
+echo "Host github.com" >> ~/.ssh/config
 echo -e "\tIdentityFile $(pwd)/scripts/id_rsa" >> ~/.ssh/config
 echo -e "\tIdentitiesOnly yes" >> ~/.ssh/config
-cat ~/.ssh/config
 
 # Clone target repo
-git clone --depth=1 gitosis@github:kovacsi/testrepo.git build-repo
+git clone --depth=1 gitosis@github.com:kovacsi/testrepo.git build-repo
 cd build-repo
 
 # Update files
