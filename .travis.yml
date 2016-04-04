@@ -25,7 +25,7 @@ script:
   - xctool -project TestSDK.xcodeproj -scheme TestSDK -sdk iphonesimulator -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO 'CODE_SIGN_RESOURCE_RULES_PATH=$(SDKROOT)/ResourceRules.plist'
 after_success:
   - ssh-add -K scripts/id_rsa
-  - git clone https://liliomk@github.com/kovacsi/testrepo.git build-repo
+  - git clone gitosis@github.com:kovacsi/testrepo.git build-repo
   - cd build-repo
   - rm -rf TestSDK.framework
   - cp -R ../build/Release-iphoneos/TestSDK.framework ./
