@@ -2,7 +2,7 @@
 eval "$(ssh-agent -s)"
 chmod 600 scripts/id_rsa
 ssh-add scripts/id_rsa
-ssh -o StrictHostKeyChecking=no travis-deploy
+ssh -o StrictHostKeyChecking=no git@github.com
 
 # Clone target repo
 set -e
