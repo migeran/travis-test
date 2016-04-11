@@ -58,6 +58,7 @@ git push origin "$DIST_BRANCH_NAME"
 # Exit if non-tagged
 if [ -n "$TRAVIS_TAG" ]; then
 	echo "Pushing to CocoaPods..."
+	set +e
 
 	which rvm &> /dev/null
 	if [ "$?" -ne 0 ]; then
@@ -71,6 +72,7 @@ if [ -n "$TRAVIS_TAG" ]; then
 		exit 1
 	fi
 
+	set -e
 	source ~/.rvm/scripts/rvm
 	rvm use default
 
