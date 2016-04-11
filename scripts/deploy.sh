@@ -82,7 +82,6 @@ if [ -n "$TRAVIS_TAG" ]; then
 
 	echo "  Sourcing rvm scripts..."
 	set -e
-	source ~/.rvm/scripts/rvm 2>&1
 	rvm use default 2>&1
 
 	echo "  Pushing to trunk..."
