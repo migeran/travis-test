@@ -62,23 +62,24 @@ if [ -n "$TRAVIS_TAG" ]; then
 
 	which rvm &> /dev/null
 	if [ "$?" -ne 0 ]; then
-		echo "rvm is not installed!" 1>&2
+		echo "rvm is not installed!"
 		exit 1
 	fi
 
 	which pod &> /dev/null
 	if [ "$?" -ne 0 ]; then
-		echo "pod is not installed!" 1>&2
+		echo "pod is not installed!"
 		exit 1
 	fi
 
 	set -e
-	source ~/.rvm/scripts/rvm
-	rvm use default
+	source ~/.rvm/scripts/rvm 2>&1
+	rvm use default 2>&1
 
-	pod trunk push
+	set +e
+	pod trunk push 2>&1
 	if [ "$?" -ne 0 ]; then
-		echo "pod trunk push failed!" 1>&2
+		echo "pod trunk push failed!"
 		exit 1
 	fi
 fi
