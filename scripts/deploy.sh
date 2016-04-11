@@ -4,24 +4,61 @@ chmod 600 scripts/id_rsa
 ssh-add scripts/id_rsa
 ssh -o StrictHostKeyChecking=no git@github.com
 
-# Clone target repo
+# Hardfail on errors
 set -e
-set -x
+
+echo "Cloning target repo..."
 git clone --depth=1 ssh://github.com/kovacsi/testrepo.git build-repo
 cd build-repo
 
-# Update files
+echo "Updating files..."
 rm -rf TestSDK.framework
 cp -R ../build/Release-iphoneos/TestSDK.framework ./
 lipo ../build/Release-iphoneos/TestSDK.framework/TestSDK ../build/Release-iphonesimulator/TestSDK.framework/TestSDK -create -output TestSDK.framework/TestSDK
 git add --all TestSDK.framework
 
-# Commit
+echo "Configuring git"
 git config user.name "Travis CI"
 git config user.email "travis-ci@mattakis.com"
-git commit -m "$(cd ../ &&  git rev-parse HEAD)"
-git push origin master
 
-# Clean up
-cd ..
-rm -rf build-repo
+# Branch for tagged versions
+export DIST_BRANCH_NAME="master"
+if [ -n "$TRAVIS_TAG" ]; then
+	echo "Branching for $TRAVIS_TAG..."
+	git checkout -b "$TRAVIS_TAG"
+	export DIST_BRANCH_NAME="$TRAVIS_TAG"
+
+	export PODSPEC_FILE="travis-test.podspec"
+
+	echo "Creating podspec..."
+	echo "  Podspec version/git branch: $TRAVIS_TAG"
+
+	echo -n "" > $PODSPEC_FILE
+	echo "Pod::Spec.new do |spec|" >> $PODSPEC_FILE
+	echo "  spec.name                 = 'travis-test'" >> $PODSPEC_FILE
+	echo "  spec.version              = '$TRAVIS_TAG'" >> $PODSPEC_FILE
+	echo "  spec.homepage             = 'https://github.com/kovacsi/testrepo.git'" >> $PODSPEC_FILE
+	echo "  spec.license              = { :type => 'EPL', :file => 'LICENSE.txt' }" >> $PODSPEC_FILE
+	echo "  spec.author               = { 'Migeran' => 'support@migeran.com' }" >> $PODSPEC_FILE
+	echo "  spec.summary              = 'Simple cocoapods test'" >> $PODSPEC_FILE
+	echo "  spec.platform             = :ios, '8.4'" >> $PODSPEC_FILE
+	echo "  spec.source               = { :git => 'https://github.com/kovacsi/testrepo.git', :branch => '$TRAVIS_TAG' }" >> $PODSPEC_FILE
+	echo "  spec.vendored_frameworks  = 'TestSDK.framework'" >> $PODSPEC_FILE
+	echo "  spec.requires_arc         = true" >> $PODSPEC_FILE
+	echo "end" >> $PODSPEC_FILE
+	git add "$PODSPEC_FILE"
+fi
+
+echo "Commiting..."
+git commit -m "$TRAVIS_COMMIT"
+
+echo "Pushing..."
+git push origin "$DIST_BRANCH_NAME"
+
+# Exit if non-tagged
+if [ -n "$TRAVIS_TAG" ]; then
+	echo "Pushing to CocoaPods..."
+	source ~/.rvm/scripts/rvm
+	rvm use default
+	pod trunk push
+fi
