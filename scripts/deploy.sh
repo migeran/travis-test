@@ -25,8 +25,8 @@ git config user.email "travis-ci@mattakis.com"
 export DIST_BRANCH_NAME="master"
 if [ -n "$TRAVIS_TAG" ]; then
 	echo "Branching for $TRAVIS_TAG..."
-	git checkout -b "$TRAVIS_TAG"
-	export DIST_BRANCH_NAME="$TRAVIS_TAG"
+	git checkout -b "dist-$TRAVIS_TAG"
+	export DIST_BRANCH_NAME="dist-$TRAVIS_TAG"
 
 	export PODSPEC_FILE="travis-test.podspec"
 
@@ -42,7 +42,7 @@ if [ -n "$TRAVIS_TAG" ]; then
 	echo "  spec.author               = { 'Migeran' => 'support@migeran.com' }" >> $PODSPEC_FILE
 	echo "  spec.summary              = 'Simple cocoapods test'" >> $PODSPEC_FILE
 	echo "  spec.platform             = :ios, '8.4'" >> $PODSPEC_FILE
-	echo "  spec.source               = { :git => 'https://github.com/kovacsi/testrepo.git', :branch => '$TRAVIS_TAG' }" >> $PODSPEC_FILE
+	echo "  spec.source               = { :git => 'https://github.com/kovacsi/testrepo.git', :tag => '$TRAVIS_TAG' }" >> $PODSPEC_FILE
 	echo "  spec.vendored_frameworks  = 'TestSDK.framework'" >> $PODSPEC_FILE
 	echo "  spec.requires_arc         = true" >> $PODSPEC_FILE
 	echo "end" >> $PODSPEC_FILE
@@ -55,27 +55,37 @@ git commit -m "$TRAVIS_COMMIT"
 echo "Pushing..."
 git push origin "$DIST_BRANCH_NAME"
 
+if [ -n "$TRAVIS_TAG" ]; then
+	echo "Tagging..."
+	git tag "$TRAVIS_TAG"
+	git push origin tag "$TRAVIS_TAG"
+fi
+
 # Exit if non-tagged
 if [ -n "$TRAVIS_TAG" ]; then
 	echo "Pushing to CocoaPods..."
 	set +e
 
+	echo "  Looking for rvm..."
 	which rvm &> /dev/null
 	if [ "$?" -ne 0 ]; then
 		echo "rvm is not installed!"
 		exit 1
 	fi
 
+	echo "  Looking for pod..."
 	which pod &> /dev/null
 	if [ "$?" -ne 0 ]; then
 		echo "pod is not installed!"
 		exit 1
 	fi
 
+	echo "  Sourcing rvm scripts..."
 	set -e
 	source ~/.rvm/scripts/rvm 2>&1
 	rvm use default 2>&1
 
+	echo "  Pushing to trunk..."
 	set +e
 	pod trunk push 2>&1
 	if [ "$?" -ne 0 ]; then
