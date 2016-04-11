@@ -58,7 +58,25 @@ git push origin "$DIST_BRANCH_NAME"
 # Exit if non-tagged
 if [ -n "$TRAVIS_TAG" ]; then
 	echo "Pushing to CocoaPods..."
+
+	which rvm &> /dev/null
+	if [ "$?" -ne 0 ]; then
+		echo "rvm is not installed!" 1>&2
+		exit 1
+	fi
+
+	which pod &> /dev/null
+	if [ "$?" -ne 0 ]; then
+		echo "pod is not installed!" 1>&2
+		exit 1
+	fi
+
 	source ~/.rvm/scripts/rvm
 	rvm use default
+
 	pod trunk push
+	if [ "$?" -ne 0 ]; then
+		echo "pod trunk push failed!" 1>&2
+		exit 1
+	fi
 fi
