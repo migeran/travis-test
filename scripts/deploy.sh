@@ -50,7 +50,7 @@ if [ -n "$TRAVIS_TAG" ]; then
 fi
 
 echo "Commiting..."
-git commit -m "$TRAVIS_COMMIT"
+git commit -m "Build: $TRAVIS_BUILD_NUMBER\n\nRepository: https://github.com/kovacsi/testrepo.git\nBranch: $TRAVIS_BRANCH\nCommit id: $TRAVIS_COMMIT"
 
 echo "Pushing..."
 git push origin "$DIST_BRANCH_NAME"
