@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Test.h"
+#import <TestSDK/TestSDK.h>
 
 @interface TestSDKTests : XCTestCase
 

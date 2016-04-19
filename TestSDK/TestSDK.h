@@ -6,5 +6,4 @@
 //  Copyright © 2016 Mattakis Ltd. All rights reserved.
 //
 
-#import <TestSDK/Test.h>
-
+#import "Test.h"
