@@ -19,7 +19,7 @@ if [ -n "$TRAVIS_TAG" ]; then
 	echo "  spec.platform             = :ios, '8.4'" >> $PODSPEC_FILE
 	echo "  spec.source               = { :git => 'https://github.com/migeran/travis-test.git', :tag => '$TRAVIS_TAG' }" >> $PODSPEC_FILE
 	echo "  spec.source_files         = 'TestSDK/**/*.{h,m}'" >> $PODSPEC_FILE
-    echo "  spec.public_header_files  = 'TestSDK/TestSDK.h'" >> $PODSPEC_FILE
+    echo "  spec.public_header_files  = ['TestSDK/TestSDK.h', 'TestSDK/Test.h']" >> $PODSPEC_FILE
 	echo "  spec.requires_arc         = true" >> $PODSPEC_FILE
 	echo "end" >> $PODSPEC_FILE
 
