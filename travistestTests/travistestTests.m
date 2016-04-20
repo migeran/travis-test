@@ -1,6 +1,6 @@
 //
-//  TestSDKTests.m
-//  TestSDKTests
+//  travistestTests.m
+//  travistestTests
 //
 //  Created by kovacsi on 31/03/16.
 //  Copyright © 2016 Mattakis Ltd. All rights reserved.
@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "Test.h"
 
-@interface TestSDKTests : XCTestCase
+@interface travistestTests : XCTestCase
 
 @end
 
-@implementation TestSDKTests
+@implementation travistestTests
 
 - (void)setUp {
     [super setUp];

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		585C98221CB261E7000BD18F /* Test.h in Headers */ = {isa = PBXBuildFile; fileRef = 99B48A3C1CAD480E00F7974A /* Test.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99B48A261CAD460500F7974A /* TestSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 99B48A251CAD460500F7974A /* TestSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99B48A2D1CAD460500F7974A /* TestSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B48A221CAD460500F7974A /* TestSDK.framework */; };
-		99B48A321CAD460500F7974A /* TestSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B48A311CAD460500F7974A /* TestSDKTests.m */; };
+		99B48A261CAD460500F7974A /* travistest.h in Headers */ = {isa = PBXBuildFile; fileRef = 99B48A251CAD460500F7974A /* travistest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99B48A2D1CAD460500F7974A /* travistest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B48A221CAD460500F7974A /* travistest.framework */; };
+		99B48A321CAD460500F7974A /* travistestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B48A311CAD460500F7974A /* travistestTests.m */; };
 		99B48A3E1CAD481C00F7974A /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B48A3D1CAD481C00F7974A /* Test.m */; };
 /* End PBXBuildFile section */
 
@@ -20,16 +20,16 @@
 			containerPortal = 99B48A191CAD460500F7974A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 99B48A211CAD460500F7974A;
-			remoteInfo = TestSDK;
+			remoteInfo = travistest;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		99B48A221CAD460500F7974A /* TestSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		99B48A251CAD460500F7974A /* TestSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSDK.h; sourceTree = "<group>"; };
+		99B48A221CAD460500F7974A /* travistest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = travistest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99B48A251CAD460500F7974A /* travistest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = travistest.h; sourceTree = "<group>"; };
 		99B48A271CAD460500F7974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99B48A2C1CAD460500F7974A /* TestSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		99B48A311CAD460500F7974A /* TestSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSDKTests.m; sourceTree = "<group>"; };
+		99B48A2C1CAD460500F7974A /* travistestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travistestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99B48A311CAD460500F7974A /* travistestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = travistestTests.m; sourceTree = "<group>"; };
 		99B48A331CAD460500F7974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99B48A3C1CAD480E00F7974A /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		99B48A3D1CAD481C00F7974A /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B48A2D1CAD460500F7974A /* TestSDK.framework in Frameworks */,
+				99B48A2D1CAD460500F7974A /* travistest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,8 +57,8 @@
 		99B48A181CAD460500F7974A = {
 			isa = PBXGroup;
 			children = (
-				99B48A241CAD460500F7974A /* TestSDK */,
-				99B48A301CAD460500F7974A /* TestSDKTests */,
+				99B48A241CAD460500F7974A /* travistest */,
+				99B48A301CAD460500F7974A /* travistestTests */,
 				99B48A231CAD460500F7974A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,30 +66,30 @@
 		99B48A231CAD460500F7974A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99B48A221CAD460500F7974A /* TestSDK.framework */,
-				99B48A2C1CAD460500F7974A /* TestSDKTests.xctest */,
+				99B48A221CAD460500F7974A /* travistest.framework */,
+				99B48A2C1CAD460500F7974A /* travistestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		99B48A241CAD460500F7974A /* TestSDK */ = {
+		99B48A241CAD460500F7974A /* travistest */ = {
 			isa = PBXGroup;
 			children = (
-				99B48A251CAD460500F7974A /* TestSDK.h */,
+				99B48A251CAD460500F7974A /* travistest.h */,
 				99B48A271CAD460500F7974A /* Info.plist */,
 				99B48A3C1CAD480E00F7974A /* Test.h */,
 				99B48A3D1CAD481C00F7974A /* Test.m */,
 			);
-			path = TestSDK;
+			path = travistest;
 			sourceTree = "<group>";
 		};
-		99B48A301CAD460500F7974A /* TestSDKTests */ = {
+		99B48A301CAD460500F7974A /* travistestTests */ = {
 			isa = PBXGroup;
 			children = (
-				99B48A311CAD460500F7974A /* TestSDKTests.m */,
+				99B48A311CAD460500F7974A /* travistestTests.m */,
 				99B48A331CAD460500F7974A /* Info.plist */,
 			);
-			path = TestSDKTests;
+			path = travistestTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +99,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B48A261CAD460500F7974A /* TestSDK.h in Headers */,
+				99B48A261CAD460500F7974A /* travistest.h in Headers */,
 				585C98221CB261E7000BD18F /* Test.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,9 +107,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		99B48A211CAD460500F7974A /* TestSDK */ = {
+		99B48A211CAD460500F7974A /* travistest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99B48A361CAD460500F7974A /* Build configuration list for PBXNativeTarget "TestSDK" */;
+			buildConfigurationList = 99B48A361CAD460500F7974A /* Build configuration list for PBXNativeTarget "travistest" */;
 			buildPhases = (
 				99B48A1D1CAD460500F7974A /* Sources */,
 				99B48A1E1CAD460500F7974A /* Frameworks */,
@@ -120,14 +120,14 @@
 			);
 			dependencies = (
 			);
-			name = TestSDK;
-			productName = TestSDK;
-			productReference = 99B48A221CAD460500F7974A /* TestSDK.framework */;
+			name = travistest;
+			productName = travistest;
+			productReference = 99B48A221CAD460500F7974A /* travistest.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		99B48A2B1CAD460500F7974A /* TestSDKTests */ = {
+		99B48A2B1CAD460500F7974A /* travistestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99B48A391CAD460500F7974A /* Build configuration list for PBXNativeTarget "TestSDKTests" */;
+			buildConfigurationList = 99B48A391CAD460500F7974A /* Build configuration list for PBXNativeTarget "travistestTests" */;
 			buildPhases = (
 				99B48A281CAD460500F7974A /* Sources */,
 				99B48A291CAD460500F7974A /* Frameworks */,
@@ -138,9 +138,9 @@
 			dependencies = (
 				99B48A2F1CAD460500F7974A /* PBXTargetDependency */,
 			);
-			name = TestSDKTests;
-			productName = TestSDKTests;
-			productReference = 99B48A2C1CAD460500F7974A /* TestSDKTests.xctest */;
+			name = travistestTests;
+			productName = travistestTests;
+			productReference = 99B48A2C1CAD460500F7974A /* travistestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +160,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 99B48A1C1CAD460500F7974A /* Build configuration list for PBXProject "TestSDK" */;
+			buildConfigurationList = 99B48A1C1CAD460500F7974A /* Build configuration list for PBXProject "travistest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -172,8 +172,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99B48A211CAD460500F7974A /* TestSDK */,
-				99B48A2B1CAD460500F7974A /* TestSDKTests */,
+				99B48A211CAD460500F7974A /* travistest */,
+				99B48A2B1CAD460500F7974A /* travistestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -208,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B48A321CAD460500F7974A /* TestSDKTests.m in Sources */,
+				99B48A321CAD460500F7974A /* travistestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +217,7 @@
 /* Begin PBXTargetDependency section */
 		99B48A2F1CAD460500F7974A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99B48A211CAD460500F7974A /* TestSDK */;
+			target = 99B48A211CAD460500F7974A /* travistest */;
 			targetProxy = 99B48A2E1CAD460500F7974A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -322,12 +322,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TestSDK/Info.plist;
+				INFOPLIST_FILE = travistest/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = TestSDK/module.modulemap;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.TestSDK;
+				MODULEMAP_FILE = travistest/module.modulemap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -342,14 +342,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TestSDK/Info.plist;
+				INFOPLIST_FILE = travistest/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = TestSDK/module.modulemap;
+				MODULEMAP_FILE = travistest/module.modulemap;
 				"OTHER_CFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.TestSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -358,9 +358,9 @@
 		99B48A3A1CAD460500F7974A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = TestSDKTests/Info.plist;
+				INFOPLIST_FILE = travistestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.TestSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -368,9 +368,9 @@
 		99B48A3B1CAD460500F7974A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = TestSDKTests/Info.plist;
+				INFOPLIST_FILE = travistestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.TestSDKTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -378,7 +378,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		99B48A1C1CAD460500F7974A /* Build configuration list for PBXProject "TestSDK" */ = {
+		99B48A1C1CAD460500F7974A /* Build configuration list for PBXProject "travistest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99B48A341CAD460500F7974A /* Debug */,
@@ -387,7 +387,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99B48A361CAD460500F7974A /* Build configuration list for PBXNativeTarget "TestSDK" */ = {
+		99B48A361CAD460500F7974A /* Build configuration list for PBXNativeTarget "travistest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99B48A371CAD460500F7974A /* Debug */,
@@ -396,7 +396,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99B48A391CAD460500F7974A /* Build configuration list for PBXNativeTarget "TestSDKTests" */ = {
+		99B48A391CAD460500F7974A /* Build configuration list for PBXNativeTarget "travistestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99B48A3A1CAD460500F7974A /* Debug */,

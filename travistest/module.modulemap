@@ -1,0 +1,8 @@
+framework module travistest {
+  umbrella header "travistest.h"
+
+  export *
+  module * { export * }
+
+  header "Test.h"
+}

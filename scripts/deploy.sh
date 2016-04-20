@@ -10,7 +10,7 @@ if [ -n "$TRAVIS_TAG" ]; then
 
 	echo -n "" > $PODSPEC_FILE
 	echo "Pod::Spec.new do |spec|" >> $PODSPEC_FILE
-	echo "  spec.name                 = 'travis-test'" >> $PODSPEC_FILE
+	echo "  spec.name                 = 'travistest'" >> $PODSPEC_FILE
 	echo "  spec.version              = '$TRAVIS_TAG'" >> $PODSPEC_FILE
 	echo "  spec.homepage             = 'https://github.com/kovacsi/testrepo.git'" >> $PODSPEC_FILE
 	echo "  spec.license              = { :type => 'EPL', :file => 'LICENSE.txt' }" >> $PODSPEC_FILE
@@ -18,8 +18,8 @@ if [ -n "$TRAVIS_TAG" ]; then
 	echo "  spec.summary              = 'Simple cocoapods test'" >> $PODSPEC_FILE
 	echo "  spec.platform             = :ios, '8.4'" >> $PODSPEC_FILE
 	echo "  spec.source               = { :git => 'https://github.com/migeran/travis-test.git', :tag => '$TRAVIS_TAG' }" >> $PODSPEC_FILE
-	echo "  spec.source_files         = 'TestSDK/**/*.{h,m}'" >> $PODSPEC_FILE
-    echo "  spec.public_header_files  = ['TestSDK/TestSDK.h', 'TestSDK/Test.h']" >> $PODSPEC_FILE
+	echo "  spec.source_files         = 'travistest/**/*.{h,m}'" >> $PODSPEC_FILE
+    echo "  spec.public_header_files  = ['travistest/travistest.h', 'travistest/Test.h']" >> $PODSPEC_FILE
 	echo "  spec.requires_arc         = true" >> $PODSPEC_FILE
 	echo "end" >> $PODSPEC_FILE
 

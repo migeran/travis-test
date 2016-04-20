@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99B48A211CAD460500F7974A"
-               BuildableName = "TestSDK.framework"
-               BlueprintName = "TestSDK"
-               ReferencedContainer = "container:TestSDK.xcodeproj">
+               BuildableName = "travistest.framework"
+               BlueprintName = "travistest"
+               ReferencedContainer = "container:travistest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99B48A2B1CAD460500F7974A"
-               BuildableName = "TestSDKTests.xctest"
-               BlueprintName = "TestSDKTests"
-               ReferencedContainer = "container:TestSDK.xcodeproj">
+               BuildableName = "travistestTests.xctest"
+               BlueprintName = "travistestTests"
+               ReferencedContainer = "container:travistest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99B48A211CAD460500F7974A"
-            BuildableName = "TestSDK.framework"
-            BlueprintName = "TestSDK"
-            ReferencedContainer = "container:TestSDK.xcodeproj">
+            BuildableName = "travistest.framework"
+            BlueprintName = "travistest"
+            ReferencedContainer = "container:travistest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99B48A211CAD460500F7974A"
-            BuildableName = "TestSDK.framework"
-            BlueprintName = "TestSDK"
-            ReferencedContainer = "container:TestSDK.xcodeproj">
+            BuildableName = "travistest.framework"
+            BlueprintName = "travistest"
+            ReferencedContainer = "container:travistest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99B48A211CAD460500F7974A"
-            BuildableName = "TestSDK.framework"
-            BlueprintName = "TestSDK"
-            ReferencedContainer = "container:TestSDK.xcodeproj">
+            BuildableName = "travistest.framework"
+            BlueprintName = "travistest"
+            ReferencedContainer = "container:travistest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
