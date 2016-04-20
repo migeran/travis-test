@@ -327,7 +327,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = travistest/module.modulemap;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistest;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mattakis.travis-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -349,7 +349,7 @@
 				MODULEMAP_FILE = travistest/module.modulemap;
 				"OTHER_CFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mattakis.travistest;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mattakis.travis-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
