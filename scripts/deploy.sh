@@ -3,7 +3,7 @@ set -e
 
 if [ -n "$TRAVIS_TAG" ]; then
 
-	export PODSPEC_FILE="travis-test.podspec"
+	export PODSPEC_FILE="travistest.podspec"
 
 	echo "Creating podspec..."
 	echo "  Podspec version/git branch: $TRAVIS_TAG"
